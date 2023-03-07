@@ -79,7 +79,6 @@ class RecipeController extends Controller
         $file = $request->file('image');
         $path = rand(1000000, 9999999) . '-' . $file->getClientOriginalName('recipe_images');
         $file->move(public_path() . '/recipe_images', $path);
-        //$path = St;orage::disk('public')->put('recipes_public', $file);
 
         $recipe = new Recipe();
         $recipe->save();
@@ -122,8 +121,15 @@ class RecipeController extends Controller
                 $data['is_active'] = 0;
             }
 
+            $data = $request->all();
+            $file = $request->file('image');
+            $path = rand(1000000, 9999999) . '-' . $file->getClientOriginalName('recipe_images');
+            $file->move(public_path() . '/recipe_images', $path);
+
+            $recipe->fill($data);
+            $recipe->image = $path;
             $recipe->ingredients()->sync($data['ingredient']);
-            $recipe->update($data);
+            $recipe->save();
 
             return redirect('admin/recipes')->with('success', 'Recipe updated!');
         }

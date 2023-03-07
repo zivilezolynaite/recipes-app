@@ -30,7 +30,7 @@
                     <a href="{{ url('admin/recipes', ['id' => $recipe->id]) }}">{{ $recipe->name }}</a>
                 </td>
                 <td>
-                    <img src="{{ asset('recipe_images/' . $recipe->image) }}">
+                    <img src="{{ asset('recipe_images/' . $recipe->image) }}" width="30%">
                 </td>
                 <td>
                     @if($recipe->is_active)

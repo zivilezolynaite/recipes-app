@@ -36,5 +36,9 @@
             @endif
         </div>
 
+        <td>
+            <img src="{{ asset('recipe_images/' . $recipe->image) }}">
+        </td>
+
     </form>
 @endsection

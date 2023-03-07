@@ -3,7 +3,7 @@
 @section('content')
     <h3>Edit new recipe</h3>
 
-    <form action="{{ url('admin/recipes/edit', ['id' => $recipe->id]) }}" method="post" class="row g-3">
+    <form action="{{ url('admin/recipes/edit', ['id' => $recipe->id]) }}" method="post" class="row g-3" enctype="multipart/form-data">
         @csrf
         <div class="col-12">
             <label class="form-label">Recipe name:</label>
@@ -15,7 +15,7 @@
 
         <div clas="col-12">
             <label class="form-label">Description:</label>
-            <textarea id="Description" name="description" rows="4" cols="50" class="form-control @error('description') is-invalid @enderror" placeholder="Description">{{ old('description') }}</textarea>
+            <textarea id="Description" name="description" rows="4" cols="50" class="form-control @error('description') is-invalid @enderror" placeholder="Description">{{ old('description', $recipe->description) }}</textarea>
         </div>
 
         <div class="col-12">

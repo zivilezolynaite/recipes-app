@@ -27,7 +27,7 @@
                     @endif
                 </td>
                 <td>
-                    <img src="{{ asset('recipe_images/' . $recipe->image) }}">
+                    <img src="{{ asset('recipe_images/' . $recipe->image) }}" width="30%">
                 </td>
             </tr>
         @endforeach
